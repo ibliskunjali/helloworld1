@@ -2,11 +2,11 @@ pipeline {
   agent { label 'master' }
 
   tools {
-    jdk 'Java8'
-    maven 'Maven3.3.9'
+    jdk 'java11'
+    maven 'maven3.6.3'
   }
   
-  environment {
+  /*environment {
 
       sonar_url = 'http://172.31.93.142:9000'
       sonar_username = 'admin'
@@ -14,10 +14,10 @@ pipeline {
       nexus_url = '172.31.93.142:8081'
       artifact_version = '4.0.0'
 
- }
- parameters {
+ }*/
+ /*parameters {
       string(defaultValue: 'master', description: 'Please type any branch name to deploy', name: 'Branch')
- }  
+ } */ 
 
 stages {
     /*stage('Git checkout'){
@@ -31,7 +31,7 @@ stages {
         sh 'mvn clean install'
       }
     }
-  stage ('Sonarqube Analysis'){
+  /*stage ('Sonarqube Analysis'){
            steps {
            withSonarQubeEnv('sonarqube') {
            sh '''
@@ -39,6 +39,6 @@ stages {
            '''
            }
          }
-      } 
+      } */
  }
 }
