@@ -15,17 +15,17 @@ pipeline {
       artifact_version = '4.0.0'
 
  }
- parameters {
+/* parameters {
       string(defaultValue: 'main', description: 'Please type any branch name to deploy', name: 'Branch')
- } 
+ } */
 
 stages {
    /* stage('Git checkout'){
       steps {
         git branch: '${Branch}',
         url: 'https://github.com/chinni4321/helloworld.git'
-      }*/
-    }
+      }
+    }*/
     stage('Maven build'){
       steps {
         sh 'mvn clean install'
