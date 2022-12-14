@@ -6,7 +6,7 @@ pipeline {
     maven 'maven3.6.3'
   }
   
-  /*environment {
+  environment {
 
       sonar_url = 'http://172.31.93.142:9000'
       sonar_username = 'admin'
@@ -14,24 +14,24 @@ pipeline {
       nexus_url = '172.31.93.142:8081'
       artifact_version = '4.0.0'
 
- }*/
- /*parameters {
+ }
+ parameters {
       string(defaultValue: 'master', description: 'Please type any branch name to deploy', name: 'Branch')
- } */ 
+ } 
 
 stages {
-    /*stage('Git checkout'){
+    stage('Git checkout'){
       steps {
         git branch: '${Branch}',
         url: 'https://github.com/chinni4321/helloworld.git'
       }
-    }*/
+    }
     stage('Maven build'){
       steps {
         sh 'mvn clean install'
       }
     }
-  /*stage ('Sonarqube Analysis'){
+  stage ('Sonarqube Analysis'){
            steps {
            withSonarQubeEnv('sonarqube') {
            sh '''
@@ -39,6 +39,6 @@ stages {
            '''
            }
          }
-      } */
+      } 
  }
 }
